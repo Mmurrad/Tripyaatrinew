@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:background="@color/background"
+    tools:context=".Add_News_Activity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:padding="10dp"
+            android:id="@+id/news_image_id"
+            android:layout_width="match_parent"
+            android:layout_height="280dp">
+
+        </ImageView>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button"
+            android:text="Choose Image"
+            android:textSize="20sp"
+            android:id="@+id/news_picture_choose_id"
+            android:textStyle="bold"
+            android:layout_height="wrap_content">
+
+        </Button>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext"
+            android:padding="10dp"
+            android:autoLink="web"
+            android:maxLines="3"
+            android:layout_marginTop="5dp"
+            android:hint="Write Description"
+            android:id="@+id/enter_news_des_id"
+            android:textSize="20sp"
+            ></EditText>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext"
+            android:padding="10dp"
+            android:autoLink="web"
+            android:layout_marginTop="5dp"
+            android:hint="Enter news Name "
+            android:id="@+id/enter_news_name_id"
+            android:textSize="20sp"
+            ></EditText>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext"
+            android:padding="10dp"
+            android:autoLink="web"
+            android:hint="Enter News Link"
+            android:layout_marginTop="5dp"
+            android:id="@+id/enter_news_id"
+            android:textSize="20sp"
+            ></EditText>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button"
+            android:text="save"
+            android:textSize="20sp"
+            android:id="@+id/news_link_save_id"
+            android:textStyle="bold"
+            ></Button>
+        <ProgressBar
+            android:visibility="gone"
+            android:id="@+id/news_progressbar_id"
+            android:layout_width="70dp"
+            android:layout_height="70dp">
+        </ProgressBar>
+    </LinearLayout>
+
+</ScrollView>

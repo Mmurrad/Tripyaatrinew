@@ -1,0 +1,58 @@
+<resources>
+
+    <string name="facebook_app_id">318942682406016</string>
+    <string name="fb_login_protocol_scheme">fb318942682406016</string>
+
+
+    <string name="app_name">Tripyaatri(new)</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string-array name="details">
+        <item>Select</item>
+        <item>Historical Place</item>
+        <item>Tourism Place</item>
+        <item>Entertainment Place</item>
+        <item>Restaurent</item>
+        <item>Hotel</item>
+        <item>Sports Place</item>
+        <item>Shopping Mall</item>
+        <item>Station</item>
+        <item>Public Service</item>
+        <item>Health</item>
+        <item>Another</item>
+
+    </string-array>
+    <string-array name="sub_category">
+        <item>Select</item>
+        <item>No Category</item>
+        <item>Movie</item>
+        <item>Park</item>
+        <item>Event</item>
+        <item>Cricket</item>
+        <item>Football</item>
+        <item>Child Stdium</item>
+        <item>Bus Station</item>
+        <item>Railway Station</item>
+        <item>Airport</item>
+        <item>Taxi</item>
+        <item>Police Station</item>
+        <item>Money Exchange</item>
+        <item>Hospital</item>
+        <item>Doctor Clinic</item>
+    </string-array>
+</resources>

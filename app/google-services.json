@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "19510026478",
+    "firebase_url": "https://tripyaatrinew-43c17.firebaseio.com",
+    "project_id": "tripyaatrinew-43c17",
+    "storage_bucket": "tripyaatrinew-43c17.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:19510026478:android:f68e3c21ff88854ee1d3ff",
+        "android_client_info": {
+          "package_name": "com.example.tripyaatrinew"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "19510026478-6bng8qp8onfavkos2m5j6hdns9d8ooa2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tripyaatrinew",
+            "certificate_hash": "f3eae0756bd1e864abd3744be88ee3a2a9383f5b"
+          }
+        },
+        {
+          "client_id": "19510026478-0udmr76h6cqg3gi54oqhdo2e0ch6n57r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdio2W6kYhFB4ggTHEm1dbrFLKdYFigM8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "19510026478-0udmr76h6cqg3gi54oqhdo2e0ch6n57r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

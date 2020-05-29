@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".About_App_Activity">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="App Name"
+            android:id="@+id/app_name_id"
+            android:textColor="@color/black"
+            android:padding="10dp"
+            android:background="@drawable/edittext"
+            android:textSize="17sp"
+            ></EditText>
+        <EditText
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="About App"
+            android:id="@+id/about_app_id"
+            android:textColor="@color/black"
+            android:padding="10dp"
+            android:maxLines="5"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:background="@drawable/edittext"
+            android:textSize="17sp"
+            ></EditText>
+        <EditText
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Admin Name"
+            android:id="@+id/admin_name_id"
+            android:textColor="@color/black"
+            android:padding="10dp"
+            android:maxLines="5"
+            android:background="@drawable/edittext"
+            android:textSize="17sp"
+            ></EditText>
+        <EditText
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Admin Phone"
+            android:id="@+id/admin_phone_id"
+            android:textColor="@color/black"
+            android:padding="10dp"
+            android:maxLines="5"
+            android:autoLink="phone"
+            android:background="@drawable/edittext"
+            android:textSize="17sp"
+            ></EditText>
+        <EditText
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Admin Email"
+            android:autoLink="email"
+            android:id="@+id/admin_email_id"
+            android:textColor="@color/black"
+            android:padding="10dp"
+            android:maxLines="5"
+            android:background="@drawable/edittext"
+            android:textSize="17sp"
+            ></EditText>
+        <EditText
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Admin Website"
+            android:id="@+id/admin_website_id"
+            android:textColor="@color/black"
+            android:padding="10dp"
+            android:maxLines="5"
+            android:autoLink="web"
+            android:background="@drawable/edittext"
+            android:textSize="17sp"
+            ></EditText>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button"
+            android:layout_marginTop="10dp"
+            android:id="@+id/admin_data_save_id"
+            android:padding="10dp"
+            android:text="save"
+            android:textSize="20sp"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+
+            ></Button>
+    </LinearLayout>
+
+</ScrollView>

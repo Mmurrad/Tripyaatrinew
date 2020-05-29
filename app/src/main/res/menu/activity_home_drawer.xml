@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/historical_id"
+            android:icon="@drawable/historical"
+            android:title="Historical Place" />
+        <item
+            android:id="@+id/tourism_id"
+            android:icon="@drawable/tourism"
+            android:title="Tourism Place" />
+        <item
+            android:id="@+id/restaurent_id"
+            android:icon="@drawable/restaturen"
+            android:title="Restaurent" />
+        <item
+            android:id="@+id/hotel_id"
+            android:icon="@drawable/hotel"
+            android:title="Hotel" />
+        <item
+            android:id="@+id/entertainment_id"
+            android:icon="@drawable/entertainment"
+            android:title="Entertainment" />
+        <item
+            android:id="@+id/sports_id"
+            android:icon="@drawable/sports"
+            android:title="Sports" />
+        <item
+            android:id="@+id/Shopping_id"
+            android:icon="@drawable/shopping"
+            android:title="Shopping" />
+        <item
+            android:id="@+id/station_id"
+            android:icon="@drawable/station"
+            android:title="Station" />
+        <item
+            android:id="@+id/service_id"
+            android:icon="@drawable/service"
+            android:title="Publice Service" />
+        <item
+            android:id="@+id/health_id"
+            android:icon="@drawable/health"
+            android:title="Health" />
+        <item
+            android:id="@+id/news"
+            android:icon="@drawable/news"
+            android:title="News" />
+        <item
+            android:id="@+id/favourite"
+            android:icon="@drawable/favourite"
+            android:title="Favourite Place" />
+
+
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_menu_share"
+                android:title="@string/menu_share" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_menu_send"
+                android:title="@string/menu_send" />
+            <item
+                android:id="@+id/nav_setting"
+                android:icon="@drawable/setting"
+                android:title="Setting" />
+            <item
+                android:id="@+id/history_id"
+                android:icon="@drawable/history"
+                android:title="History" />
+            <item
+                android:id="@+id/document_id"
+                android:icon="@drawable/attach_file"
+                android:title="Document" />
+        </menu>
+    </item>
+
+</menu>

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background"
+    android:layout_gravity="center"
+    android:gravity="center"
+    tools:context=".AddDetailsActivity">
+
+<LinearLayout
+    android:padding="10dp"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:id="@+id/imageview_id"
+        android:layout_marginBottom="10dp"
+        android:background="#ffff"
+        android:visibility="visible"
+        ></ImageView>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/button"
+        android:textColor="#fff"
+        android:text="choose image"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:id="@+id/choose_button_id"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter state name"
+        android:id="@+id/state_name_id"
+        android:padding="10dp"
+        android:textSize="20sp"
+        android:background="@drawable/edittext"
+        android:layout_marginBottom="5dp"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter city name"
+        android:id="@+id/city_name_id"
+        android:padding="10dp"
+        android:textSize="20sp"
+        android:background="@drawable/edittext"
+        android:layout_marginBottom="5dp"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter place name"
+        android:id="@+id/place_name_id"
+        android:padding="10dp"
+        android:textSize="20sp"
+        android:background="@drawable/edittext"
+        android:layout_marginBottom="5dp"
+        />
+    <ProgressBar
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:id="@+id/progress_id"
+        ></ProgressBar>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Address "
+        android:id="@+id/address_id"
+        android:padding="10dp"
+        android:textSize="20sp"
+        android:maxLines="3"
+        android:background="@drawable/edittext"
+        android:layout_marginBottom="5dp"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter phone"
+        android:id="@+id/phone_id"
+        android:padding="10dp"
+        android:textSize="20sp"
+        android:clickable="true"
+        android:autoLink="phone"
+        android:background="@drawable/edittext"
+        android:layout_marginBottom="5dp"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter web"
+        android:id="@+id/web_id"
+        android:padding="10dp"
+        android:textSize="20sp"
+        android:clickable="true"
+        android:autoLink="web"
+        android:background="@drawable/edittext"
+        android:layout_marginBottom="5dp"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Area(squre km)"
+        android:id="@+id/area_id"
+        android:padding="10dp"
+        android:textSize="20sp"
+        android:clickable="true"
+        android:autoLink="web"
+        android:background="@drawable/edittext"
+        android:layout_marginBottom="5dp"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="About place"
+        android:id="@+id/about_place_id"
+        android:padding="10dp"
+        android:textSize="20sp"
+        android:clickable="true"
+        android:lines="3"
+        android:background="@drawable/edittext"
+        android:layout_marginBottom="5dp"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:weightSum="2"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <Spinner
+            android:layout_marginLeft="5dp"
+            android:layout_width="match_parent"
+            android:entries="@array/sub_category"
+            android:textAlignment="center"
+            android:layout_weight="1"
+            android:id="@+id/place_sub_spinner_id"
+            android:layout_height="wrap_content"></Spinner>
+        <Spinner
+            android:layout_marginLeft="5dp"
+            android:layout_width="match_parent"
+            android:entries="@array/details"
+            android:textAlignment="center"
+            android:id="@+id/place_spinner_id"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"></Spinner>
+    </LinearLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/button"
+        android:textColor="#fff"
+        android:text="Save"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:id="@+id/save_button_id"
+        />
+
+</LinearLayout>
+
+</ScrollView>
