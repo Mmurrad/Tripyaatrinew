@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:columnCount="2"
-            android:rowCount="4"
+            android:rowCount="5"
             android:columnOrderPreserved="false"
             android:alignmentMode="alignMargins"
             android:layout_gravity="center"
@@ -45,15 +45,15 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:layout_width="78dp"
-                        android:layout_height="78dp"
+                        android:layout_width="@dimen/_60sdp"
+                        android:layout_height="@dimen/_60sdp"
                         android:src="@drawable/total_visit"
                         />
                     <TextView
-                        android:layout_width="80dp"
+                        android:layout_width="@dimen/_75sdp"
                         android:layout_height="wrap_content"
                         android:text="Visitors"
-                        android:textSize="14sp"
+                        android:textSize="@dimen/_12ssp"
                         android:layout_marginTop="7dp"
                         android:layout_gravity="center"
                         android:gravity="center"
@@ -80,15 +80,15 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:layout_width="78dp"
-                        android:layout_height="78dp"
+                        android:layout_width="@dimen/_60sdp"
+                        android:layout_height="@dimen/_60sdp"
                         android:src="@drawable/add_details"
                         />
                     <TextView
-                        android:layout_width="80dp"
+                        android:layout_width="@dimen/_75sdp"
                         android:layout_height="wrap_content"
                         android:text="Add Details"
-                        android:textSize="14sp"
+                        android:textSize="@dimen/_12ssp"
                         android:layout_marginTop="7dp"
                         android:layout_gravity="center"
                         android:gravity="center"
@@ -115,15 +115,15 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:layout_width="78dp"
-                        android:layout_height="78dp"
+                        android:layout_width="@dimen/_60sdp"
+                        android:layout_height="@dimen/_60sdp"
                         android:src="@drawable/attach_file"
                         />
                     <TextView
-                        android:layout_width="80dp"
+                        android:layout_width="@dimen/_75sdp"
                         android:layout_height="wrap_content"
                         android:text="Add Document"
-                        android:textSize="12sp"
+                        android:textSize="@dimen/_12ssp"
                         android:layout_marginTop="7dp"
                         android:layout_gravity="center"
                         android:gravity="center"
@@ -150,15 +150,15 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:layout_width="78dp"
-                        android:layout_height="78dp"
-                        android:src="@drawable/setting"
+                        android:layout_width="@dimen/_60sdp"
+                        android:layout_height="@dimen/_60sdp"
+                        android:src="@drawable/all_place"
                         />
                     <TextView
-                        android:layout_width="80dp"
+                        android:layout_width="@dimen/_75sdp"
                         android:layout_height="wrap_content"
-                        android:text="Settings"
-                        android:textSize="14sp"
+                        android:text="All Place"
+                        android:textSize="@dimen/_12ssp"
                         android:layout_marginTop="7dp"
                         android:layout_gravity="center"
                         android:gravity="center"
@@ -185,15 +185,15 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:layout_width="78dp"
-                        android:layout_height="78dp"
+                        android:layout_width="@dimen/_60sdp"
+                        android:layout_height="@dimen/_60sdp"
                         android:src="@drawable/about"
                         />
                     <TextView
-                        android:layout_width="80dp"
+                        android:layout_width="@dimen/_75sdp"
                         android:layout_height="wrap_content"
                         android:text="About App"
-                        android:textSize="14sp"
+                        android:textSize="@dimen/_12ssp"
                         android:layout_marginTop="7dp"
                         android:layout_gravity="center"
                         android:gravity="center"
@@ -221,15 +221,15 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:layout_width="78dp"
-                        android:layout_height="78dp"
+                        android:layout_width="@dimen/_60sdp"
+                        android:layout_height="@dimen/_60sdp"
                         android:src="@drawable/news"
                         />
                     <TextView
-                        android:layout_width="80dp"
+                        android:layout_width="@dimen/_75sdp"
                         android:layout_height="wrap_content"
                         android:text="Add News"
-                        android:textSize="14sp"
+                        android:textSize="@dimen/_12ssp"
                         android:layout_marginTop="7dp"
                         android:layout_gravity="center"
                         android:gravity="center"
@@ -258,15 +258,15 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:layout_width="78dp"
-                        android:layout_height="78dp"
+                        android:layout_width="@dimen/_60sdp"
+                        android:layout_height="@dimen/_60sdp"
                         android:src="@drawable/photo_library"
                         />
                     <TextView
-                        android:layout_width="80dp"
+                        android:layout_width="@dimen/_75sdp"
                         android:layout_height="wrap_content"
                         android:text="Save gallery"
-                        android:textSize="14sp"
+                        android:textSize="@dimen/_12ssp"
                         android:layout_marginTop="7dp"
                         android:layout_gravity="center"
                         android:gravity="center"
@@ -295,15 +295,51 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:layout_width="78dp"
-                        android:layout_height="78dp"
+                        android:layout_width="@dimen/_60sdp"
+                        android:layout_height="@dimen/_60sdp"
                         android:src="@drawable/map"
                         />
                     <TextView
-                        android:layout_width="80dp"
+                        android:layout_width="@dimen/_75sdp"
                         android:layout_height="wrap_content"
                         android:text="Latitude Longitude"
-                        android:textSize="14sp"
+                        android:textSize="@dimen/_12ssp"
+                        android:layout_marginTop="7dp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textColor="#6f6f6f"
+                        />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="12dp"
+                android:layout_margin="10dp"
+                android:id="@+id/booking_card_id"
+                >
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="@dimen/_60sdp"
+                        android:layout_height="@dimen/_60sdp"
+                        android:src="@drawable/booking"
+                        />
+                    <TextView
+                        android:layout_width="@dimen/_75sdp"
+                        android:layout_height="wrap_content"
+                        android:text="Booking List"
+                        android:textSize="@dimen/_12ssp"
                         android:layout_marginTop="7dp"
                         android:layout_gravity="center"
                         android:gravity="center"

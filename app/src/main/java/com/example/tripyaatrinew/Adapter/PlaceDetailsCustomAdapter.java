@@ -2,6 +2,7 @@ package com.example.tripyaatrinew.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.tripyaatrinew.CommentActivity;
 import com.example.tripyaatrinew.MapsActivity;
 import com.example.tripyaatrinew.R;
 import com.example.tripyaatrinew.ShowGalleryActivity;
@@ -44,7 +46,7 @@ public class PlaceDetailsCustomAdapter extends RecyclerView.Adapter<PlaceDetails
     }
 
     @Override
-    public void onBindViewHolder(@NonNull PlaceDetailsCustomAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final PlaceDetailsCustomAdapter.MyViewHolder holder, final int position) {
         final PlaceDetails place=placeDetails.get(position);
         holder.place_name.setText(place.getPlace_name());
         holder.address.setText(place.getAddress());
@@ -86,6 +88,35 @@ public class PlaceDetailsCustomAdapter extends RecyclerView.Adapter<PlaceDetails
                 }
             }
         });
+        holder.share_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                /*Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, "This is my text to send.");
+                sendIntent.setType("text/plain");
+                context.startActivity(sendIntent);*/
+
+
+                String text = "Look at my awesome picture";
+                Uri pictureUri = Uri.parse(String.valueOf(holder.imageView));
+                Intent shareIntent = new Intent();
+                shareIntent.setAction(Intent.ACTION_SEND);
+                shareIntent.putExtra(Intent.EXTRA_TEXT, text);
+                shareIntent.putExtra(Intent.EXTRA_STREAM, pictureUri);
+                shareIntent.setType("image/*");
+                shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                context.startActivity(Intent.createChooser(shareIntent, "Share images..."));
+            }
+        });
+        holder.comment_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(context, CommentActivity.class);
+                intent.putExtra("pass",place.getPlace_name());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -95,8 +126,8 @@ public class PlaceDetailsCustomAdapter extends RecyclerView.Adapter<PlaceDetails
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView place_name,address,phone,website,about;
-        Button gallery_button,map_button;
-        ImageView imageView;
+        Button gallery_button,map_button,comment_button;
+        ImageView imageView,share_image;
         CheckBox checkBox;
 
 
@@ -109,6 +140,9 @@ public class PlaceDetailsCustomAdapter extends RecyclerView.Adapter<PlaceDetails
             about=itemView.findViewById(R.id.sample_re_in_about_id);
             imageView=itemView.findViewById(R.id.show_image_id);
             imageView=itemView.findViewById(R.id.show_image_id);
+
+            comment_button=itemView.findViewById(R.id.sample_comment_id);
+            share_image=itemView.findViewById(R.id.sample_share_id);
 
             gallery_button=itemView.findViewById(R.id.sample_state_gallery_id);
             map_button=itemView.findViewById(R.id.sample_map_id);

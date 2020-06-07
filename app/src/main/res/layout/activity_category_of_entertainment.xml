@@ -77,7 +77,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:textColor="@color/txt_color_home"
+                        android:textColor="@color/card_text"
                         />
                 </LinearLayout>
 
@@ -115,7 +115,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:textColor="@color/txt_color_home"
+                        android:textColor="@color/card_text"
                         />
                 </LinearLayout>
 
@@ -152,7 +152,7 @@
                         android:layout_gravity="center"
                         android:gravity="center"
                         android:layout_marginTop="10dp"
-                        android:textColor="@color/txt_color_home"
+                        android:textColor="@color/card_text"
                         />
                 </LinearLayout>
 
@@ -213,7 +213,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:textColor="@color/txt_color_home"
+                        android:textColor="@color/card_text"
                         />
                 </LinearLayout>
 
@@ -251,7 +251,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:textColor="@color/txt_color_home"
+                        android:textColor="@color/card_text"
                         />
                 </LinearLayout>
 
@@ -288,7 +288,7 @@
                         android:layout_gravity="center"
                         android:gravity="center"
                         android:layout_marginTop="10dp"
-                        android:textColor="@color/txt_color_home"
+                        android:textColor="@color/card_text"
                         />
                 </LinearLayout>
 
@@ -350,7 +350,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:textColor="@color/txt_color_home"
+                        android:textColor="@color/card_text"
                         />
                 </LinearLayout>
 
@@ -388,7 +388,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:textColor="@color/txt_color_home"
+                        android:textColor="@color/card_text"
                         />
                 </LinearLayout>
 
@@ -425,7 +425,7 @@
                         android:layout_gravity="center"
                         android:gravity="center"
                         android:layout_marginTop="10dp"
-                        android:textColor="@color/txt_color_home"
+                        android:textColor="@color/card_text"
                         />
                 </LinearLayout>
 
@@ -485,7 +485,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:textColor="@color/txt_color_home"
+                        android:textColor="@color/card_text"
                         />
                 </LinearLayout>
 
@@ -523,7 +523,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:textColor="@color/txt_color_home"
+                        android:textColor="@color/card_text"
                         />
                 </LinearLayout>
 
@@ -560,11 +560,111 @@
                         android:layout_gravity="center"
                         android:gravity="center"
                         android:layout_marginTop="10dp"
-                        android:textColor="@color/txt_color_home"
+                        android:textColor="@color/card_text"
                         />
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+        </GridLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:visibility="gone"
+        android:layout_height="wrap_content"
+        android:id="@+id/health_visbilty_id"
+        >
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:columnCount="2"
+            android:rowCount="1"
+            android:columnOrderPreserved="false"
+            android:alignmentMode="alignMargins"
+            android:layout_gravity="center"
+            >
+
+            <androidx.cardview.widget.CardView
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="6dp"
+                app:cardBackgroundColor="@color/forground"
+                android:layout_margin="8dp"
+                android:id="@+id/hospital_id"
+                >
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="68dp"
+                        android:layout_height="68dp"
+                        android:src="@mipmap/ic_hospital_round"
+                        />
+                    <TextView
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:text="Hospital"
+                        android:textSize="11sp"
+                        android:layout_marginTop="10dp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textColor="@color/card_text"
+                        />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="6dp"
+                app:cardBackgroundColor="@color/forground"
+                android:layout_margin="8dp"
+                android:id="@+id/doctor_id"
+                >
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="68dp"
+                        android:layout_height="68dp"
+                        android:src="@mipmap/ic_doctor_c_round"
+                        />
+                    <TextView
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:text="Doctor"
+                        android:textSize="10sp"
+                        android:layout_marginTop="10dp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textColor="@color/card_text"
+                        />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
         </GridLayout>
     </LinearLayout>
 </LinearLayout>

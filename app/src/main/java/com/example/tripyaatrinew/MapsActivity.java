@@ -80,11 +80,12 @@ public class MapsActivity extends AppCompatActivity {
                         longitude=location.getLongitude();
                         try {
                             addresses= geocoder.getFromLocation(latitude,longitude,1);
+                            Address address=addresses.get(0);
+                            String loca=address.getAddressLine(0)+"\t"+address.getPostalCode()+"\t"+address.getLocality()+"\t"+address.getCountryCode();
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
-                        Address address=addresses.get(0);
-                        String loca=address.getAddressLine(0)+"\t"+address.getPostalCode()+"\t"+address.getLocality()+"\t"+address.getCountryCode();
+
 
                         databaseReference.addValueEventListener(new ValueEventListener() {
                             @Override

@@ -1,91 +1,273 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:padding="10dp"
-    android:layout_gravity="center"
-    android:background="@color/background"
     android:gravity="center"
+    android:layout_gravity="center"
+    android:background="@drawable/background"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-    <EditText
-        android:layout_width="match_parent"
+<LinearLayout
+    android:layout_marginBottom="10dp"
+    android:layout_marginTop="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <androidx.cardview.widget.CardView
         android:layout_height="wrap_content"
-        android:background="@drawable/edittext"
-        android:padding="10dp"
-        android:hint="     User Name"
-        android:drawableLeft="@drawable/username"
-        android:paddingBottom="7dp"
-        android:textSize="17sp"
-        android:layout_marginTop="5dp"
-        android:id="@+id/username_id"
-        />
-    <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/edittext"
-        android:padding="5dp"
-        android:hint="     Phone"
-        android:drawableLeft="@drawable/phone"
-        android:paddingBottom="7dp"
-        android:textSize="17sp"
-        android:layout_marginTop="5dp"
-        android:id="@+id/phone_id"
-        />
+        app:cardCornerRadius="10dp"
+        app:cardElevation="6dp"
+        android:layout_gravity="center"
+        app:cardBackgroundColor="@color/iron"
+        android:layout_margin="8dp"
+        >
+        <LinearLayout
+            android:layout_marginTop="@dimen/_10sdp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:weightSum="5"
+                android:background="@drawable/edittext"
+                android:orientation="horizontal"
+                android:padding="7dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-    <com.manojbhadane.QButton
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="Login"
-        android:textSize="20sp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp"
-        android:textColor="@android:color/white"
-        app:qb_backgroundColor="@color/lightsalmon"
-        app:qb_radius="100"
-        android:id="@+id/login_id"
-        app:qb_strokeColor="@color/lightsalmon"
-        app:qb_strokeWidth="5" />
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:background="@drawable/username"
+                    android:padding="5dp"
+                    android:paddingBottom="7dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="4.2"
+                    android:layout_height="match_parent"></ImageView>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edittext"
+                    android:padding="5dp"
+                    android:hint="User Name"
+                    android:paddingBottom="7dp"
+                    android:textSize="17sp"
+                    android:layout_weight=".8"
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/username_id"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:weightSum="5"
+                android:background="@drawable/edittext"
+                android:orientation="horizontal"
+                android:padding="7dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:background="@drawable/phone"
+                    android:padding="5dp"
+                    android:paddingBottom="7dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="4.2"
+                    android:layout_height="match_parent"></ImageView>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edittext"
+                    android:padding="5dp"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:hint="Phone"
+                    android:paddingBottom="7dp"
+                    android:textSize="17sp"
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/phone_id"
+                    />
+
+            </LinearLayout>
+            <com.manojbhadane.QButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Login"
+                android:textSize="20sp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="5dp"
+                android:textColor="@android:color/white"
+                app:qb_backgroundColor="@color/lightsalmon"
+                app:qb_radius="100"
+                android:id="@+id/login_id"
+                app:qb_strokeColor="@color/lightsalmon"
+                app:qb_strokeWidth="5" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+
+
     <LinearLayout
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:padding="10dp"
-
+        android:layout_gravity="center"
+        android:gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text=".........................Or............................"
+            android:text=".........................Or..........................."
             android:textSize="20dp"
+            android:layout_gravity="center"
+            android:gravity="center"
             android:textStyle="bold|italic"
             android:textColor="@color/black"
             />
     </LinearLayout>
 
 
+<androidx.cardview.widget.CardView
+    app:cardCornerRadius="10dp"
+    app:cardElevation="6dp"
+    android:layout_gravity="center"
+    app:cardBackgroundColor="@color/iron"
+    android:layout_margin="8dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <com.google.android.gms.common.SignInButton
-        android:layout_width="230dp"
-        android:padding="10dp"
-        android:id="@+id/signIn_button_id"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"
-        android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_marginTop="@dimen/_10sdp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:weightSum="5"
+            android:background="@drawable/edittext"
+            android:orientation="horizontal"
+            android:padding="7dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    </com.google.android.gms.common.SignInButton>
+            <ImageView
+                android:layout_width="match_parent"
+                android:background="@drawable/phone"
+                android:padding="5dp"
+                android:paddingBottom="7dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="4.2"
+                android:layout_height="match_parent"></ImageView>
 
-    <com.facebook.login.widget.LoginButton
-        android:id="@+id/login_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="30dp" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext"
+                android:padding="5dp"
+                android:hint="Phone"
+                android:paddingBottom="7dp"
+                android:textSize="17sp"
+                android:layout_marginTop="5dp"
+                android:id="@+id/user_phone_id"
+                />
+        </LinearLayout>
+        <com.manojbhadane.QButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Get Verification Code"
+            android:textSize="17sp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:textColor="@android:color/white"
+            app:qb_backgroundColor="@color/Green"
+            app:qb_radius="100"
+            android:id="@+id/verification_code_id"
+            app:qb_strokeColor="@color/lightsalmon"
+            app:qb_strokeWidth="5" />
+        <LinearLayout
+            android:weightSum="5"
+            android:background="@drawable/edittext"
+            android:orientation="horizontal"
+            android:padding="7dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:background="@drawable/verify"
+                android:padding="4dp"
+                android:paddingBottom="7dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="4.2"
+                android:layout_height="match_parent"></ImageView>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext"
+                android:padding="5dp"
+                android:hint="     Verification Code"
+                android:paddingBottom="7dp"
+                android:textSize="17sp"
+                android:layout_marginTop="5dp"
+                android:id="@+id/user_verification_code_id"
+                />
+        </LinearLayout>
+
+
+        <com.manojbhadane.QButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Sign In"
+            android:textSize="17sp"
+            android:layout_marginTop="5dp"
+            android:textColor="@android:color/white"
+            app:qb_backgroundColor="@color/Green"
+            app:qb_radius="100"
+            android:id="@+id/user_sign_in_id"
+            app:qb_strokeColor="@color/lightsalmon"
+            app:qb_strokeWidth="5" />
+
+        <com.google.android.gms.common.SignInButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textSize="17sp"
+            android:layout_marginTop="5dp"
+            android:textColor="@android:color/white"
+            app:qb_backgroundColor="@color/darkgreen"
+            app:qb_radius="100"
+            android:id="@+id/signIn_button_id"
+            app:qb_strokeColor="@color/lightsalmon"
+            app:qb_strokeWidth="5" />
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
+
+
+
+
+
+
 
 
 
@@ -94,9 +276,9 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:text="Skip "
-        android:textSize="20sp"
-        android:layout_marginBottom="5dp"
-        android:layout_marginTop="10dp"
+        android:textSize="17sp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="5dp"
         android:textColor="@android:color/white"
         app:qb_backgroundColor="@color/lightsalmon"
         app:qb_radius="100"
@@ -106,5 +288,7 @@
         app:qb_strokeColor="@color/lightsalmon"
         android:drawableRight="@drawable/skip"
         app:qb_strokeWidth="5" />
-
 </LinearLayout>
+
+
+</ScrollView>

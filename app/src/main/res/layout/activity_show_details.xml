@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/background"
+    android:background="@color/iron"
     tools:context=".ShowDetailsActivity">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/details_toolbar_id"
@@ -17,11 +17,19 @@
         android:gravity="center_vertical"
         android:textAlignment="center"
         app:titleTextColor="@color/white">
-    </androidx.appcompat.widget.Toolbar>
 
+    </androidx.appcompat.widget.Toolbar>
+    <Button
+        android:text="Click here to book package"
+        android:background="@color/forground"
+        android:layout_width="match_parent"
+        android:id="@+id/click_for_book_id"
+        android:layout_height="wrap_content"
+        ></Button>
     <androidx.recyclerview.widget.RecyclerView
-        android:padding="10dp"
+        android:padding="5dp"
         android:id="@+id/recyclerview_id"
+        android:layoutAnimation="@anim/layout_animation_from_down"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 

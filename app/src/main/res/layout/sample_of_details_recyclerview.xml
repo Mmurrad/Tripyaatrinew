@@ -10,12 +10,13 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="12dp"
-        app:cardElevation="8dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="2dp"
         android:layout_gravity="center"
-        android:layout_margin="8dp"
+        android:layout_margin="@dimen/_2sdp"
         >
         <LinearLayout
+            android:background="@color/forground"
             android:layout_gravity="center"
             android:gravity="center"
             android:orientation="vertical"
@@ -39,11 +40,10 @@
                 android:layout_height="wrap_content">
 
                 <Button
-                    android:layout_weight="1.4"
+                    android:layout_weight="1"
                     android:layout_marginTop="10dp"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:padding="7dp"
                     android:textStyle="bold"
                     android:textSize="15sp"
                     android:layout_gravity="center"
@@ -51,14 +51,13 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginBottom="10dp"
                     android:text="Gallery"
-                    android:background="@drawable/button"
+                    android:background="@drawable/new_button"
                     android:id="@+id/sample_state_gallery_id"
                     ></Button>
                 <Button
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:padding="7dp"
-                    android:layout_weight="1.4"
+                    android:layout_weight="1"
                     android:textSize="15sp"
                     android:layout_marginTop="10dp"
                     android:layout_gravity="center"
@@ -66,23 +65,47 @@
                     android:text="Map"
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="5dp"
-                    android:background="@drawable/button"
+                    android:background="@drawable/new_button"
                     android:id="@+id/sample_map_id"
+                    ></Button>
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="15sp"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="Comment"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/new_button"
+                    android:id="@+id/sample_comment_id"
                     ></Button>
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:padding="7dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="20dp"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginRight="5dp"
                     android:layout_gravity="center"
                     android:gravity="center"
-                    android:layout_marginBottom="10dp"
-                    android:layout_weight=".2"
+                    android:layout_marginBottom="20dp"
+                    android:layout_weight=".1"
                     android:button="@drawable/fav_unfav"
                     android:id="@+id/sample_fav_unfav_id"
                     ></CheckBox>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_share"
+                    android:layout_weight=".1"
+                    android:layout_marginTop="20dp"
+                    android:id="@+id/sample_share_id"
+                    android:layout_marginRight="@dimen/_15sdp"
+                    android:layout_marginBottom="20dp"
+                    android:textAlignment="textEnd"
+                    ></ImageView>
             </LinearLayout>
 
             <LinearLayout
@@ -99,7 +122,7 @@
                     android:layout_height="match_parent"
                     android:padding="7dp"
                     android:textStyle="bold"
-                    android:textSize="20sp"
+                    android:textSize="17sp"
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:text="Place Name : "
@@ -133,7 +156,7 @@
                     android:layout_height="match_parent"
                     android:padding="7dp"
                     android:textStyle="bold"
-                    android:textSize="20sp"
+                    android:textSize="17sp"
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:text="Address : "
@@ -166,7 +189,7 @@
                     android:layout_height="match_parent"
                     android:padding="7dp"
                     android:textStyle="bold"
-                    android:textSize="20sp"
+                    android:textSize="17sp"
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:text="Phone : "
@@ -200,12 +223,13 @@
                     android:layout_height="match_parent"
                     android:padding="7dp"
                     android:textStyle="bold"
-                    android:textSize="20sp"
+                    android:textSize="17sp"
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:text="Website : "
                     android:id="@+id/sample_re_website_id"
                     ></TextView>
+
                 <TextView
                     android:layout_marginTop="5dp"
                     android:layout_width="match_parent"
@@ -227,24 +251,24 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-
                     android:layout_marginTop="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:padding="7dp"
                     android:textStyle="bold"
-                    android:textSize="20sp"
+                    android:textSize="17sp"
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:text="About : "
+                    android:layout_marginLeft="@dimen/_10sdp"
                     android:id="@+id/sample_re_about_id"
                     ></TextView>
+
                 <TextView
                     android:layout_marginTop="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="7dp"
-                    android:layout_weight="1"
                     android:textSize="17sp"
                     android:layout_gravity="center"
                     android:gravity="center"

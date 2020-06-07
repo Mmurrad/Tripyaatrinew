@@ -13,10 +13,45 @@ public class PlaceDetails {
     String place_heading;
     String place_sub;
 
+    String name;
+    String specialist;
+    String charges;
+    String graduation;
+
     public PlaceDetails() {
     }
 
-    public PlaceDetails(String state_name, String city_name, String place_name, String address, String phone, String web,String area ,String about_place,String image,String place_heading,String place_sub) {
+    public PlaceDetails(String city_name) {
+        this.city_name = city_name;
+    }
+
+    public PlaceDetails(String state_name, String area) {
+        this.state_name = state_name;
+        this.area = area;
+    }
+
+    public PlaceDetails(String city_name, String state_name, String address) {
+        this.city_name = city_name;
+        this.state_name = state_name;
+        this.address = address;
+    }
+
+    public PlaceDetails(String state_name, String city_name, String address, String phone, String web, String image, String place_heading, String place_sub, String name, String specialist, String charges, String graduation) {
+        this.state_name = state_name;
+        this.city_name = city_name;
+        this.address = address;
+        this.phone = phone;
+        this.web = web;
+        this.image = image;
+        this.place_heading = place_heading;
+        this.place_sub = place_sub;
+        this.name = name;
+        this.specialist = specialist;
+        this.charges = charges;
+        this.graduation = graduation;
+    }
+
+    public PlaceDetails(String state_name, String city_name, String place_name, String address, String phone, String web, String area , String about_place, String image, String place_heading, String place_sub) {
         this.state_name = state_name;
         this.city_name = city_name;
         this.place_name = place_name;
@@ -28,6 +63,38 @@ public class PlaceDetails {
         this.image=image;
         this.place_heading=place_heading;
         this.place_sub=place_sub;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSpecialist() {
+        return specialist;
+    }
+
+    public void setSpecialist(String specialist) {
+        this.specialist = specialist;
+    }
+
+    public String getCharges() {
+        return charges;
+    }
+
+    public void setCharges(String charges) {
+        this.charges = charges;
+    }
+
+    public String getGraduation() {
+        return graduation;
+    }
+
+    public void setGraduation(String graduation) {
+        this.graduation = graduation;
     }
 
     public String getPlace_sub() {

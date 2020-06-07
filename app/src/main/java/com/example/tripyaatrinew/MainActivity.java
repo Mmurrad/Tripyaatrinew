@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.example.tripyaatrinew.Database.DatabaseHelper;
 import com.example.tripyaatrinew.model.VisitorsCount;
 import com.facebook.AccessToken;
+import com.facebook.AccessTokenTracker;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
@@ -33,14 +34,19 @@ import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.gms.tasks.TaskExecutors;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FacebookAuthCredential;
 import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.auth.PhoneAuthCredential;
+import com.google.firebase.auth.PhoneAuthProvider;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -48,15 +54,21 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.security.AuthProvider;
+import java.util.concurrent.TimeUnit;
+
+import static com.facebook.FacebookSdk.setAdvertiserIDCollectionEnabled;
 
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText username,phonenumber;
-    Button login,loginwithemail,loginwithfacebook,skip;
-    TextView forget_password;
+    EditText username,phonenumber,user_phone,verification_code;
+    Button login,verification_send,signin,skip;
 
-    int count=0,result=0;
+
+    int count=0;
+    String codeSent;
+    FirebaseAuth mAuth;
+
     DatabaseHelper databaseHelper;
 
     SignInButton signInButton;
@@ -64,37 +76,59 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     DatabaseReference databaseReference;
     private FirebaseAuth.AuthStateListener authStateListener;
-    private  LoginButton loginButton;
     private static final String TAG="FacebookAuthentication";
     GoogleSignInClient googleSignInClient;
+    private AccessTokenTracker accessTokenTracker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        mAuth = FirebaseAuth.getInstance();
         username=findViewById(R.id.username_id);
         phonenumber=findViewById(R.id.phone_id);
         login=findViewById(R.id.login_id);
 
+        user_phone=findViewById(R.id.user_phone_id);
+        verification_code=findViewById(R.id.user_verification_code_id);
+
+        verification_send=findViewById(R.id.verification_code_id);
+        signin=findViewById(R.id.user_sign_in_id);
+
         skip=findViewById(R.id.skip_id);
 
-
-        loginButton=findViewById(R.id.login_button);
         signInButton=findViewById(R.id.signIn_button_id);
 
         databaseHelper=new DatabaseHelper(this);
         SQLiteDatabase sqLiteDatabase=databaseHelper.getWritableDatabase();
-
 
         databaseReference=FirebaseDatabase.getInstance().getReference("Count");
 
         VisitorsCount visitorsCount=new VisitorsCount(1);
         databaseReference.push().setValue(visitorsCount);
 
-        loginButton.setReadPermissions("email","public_profile");
         callbackManager=CallbackManager.Factory.create();
 
+        firebaseAuth=FirebaseAuth.getInstance();
+        FacebookSdk.sdkInitialize(getApplicationContext());
 
+
+        //Sign In using phone
+        verification_send.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sendVerificationCode();
+            }
+        });
+
+        signin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                verifySignInCode();
+            }
+        });
         // Configure Google Sign In
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -110,42 +144,7 @@ public class MainActivity extends AppCompatActivity {
                 .build();
         googleSignInClient= GoogleSignIn.getClient(this,gso);
 
-        //login with facebook
-        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
-            @Override
-            public void onSuccess(LoginResult loginResult) {
-                Log.d(TAG,"Onsuccess"+loginResult);
-                handeltoken(loginResult.getAccessToken());
-                count++;
-            }
 
-            @Override
-            public void onCancel() {
-                Log.d(TAG,"Oncancel");
-            }
-
-            @Override
-            public void onError(FacebookException error) {
-                Log.d(TAG,"OnError"+error);
-            }
-        });
-
-        authStateListener=new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser firebaseUser=firebaseAuth.getCurrentUser();
-                if(firebaseUser!=null)
-                {
-                    updateUI(firebaseUser);
-                }
-                else {
-                    updateUI(null);
-                }
-            }
-        };
-
-        firebaseAuth=FirebaseAuth.getInstance();
-        FacebookSdk.sdkInitialize(getApplicationContext());
 
         skip.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -154,6 +153,7 @@ public class MainActivity extends AppCompatActivity {
                     databaseHelper.addData("Authentication");
                     Intent intent=new Intent(MainActivity.this,HomeActivity.class);
                     intent.putExtra("admin_key","skip");
+                    intent.putExtra("comment","not");
                     startActivity(intent);
 
                 }catch (Exception e)
@@ -185,27 +185,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void handeltoken(AccessToken accessToken) {
-        Log.d(TAG,"HandleFacebookToken"+accessToken);
-
-        AuthCredential authCredential= FacebookAuthProvider.getCredential(accessToken.getToken());
-        firebaseAuth.signInWithCredential(authCredential).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful())
-                {
-                    Log.d(TAG,"Sign in with credential : Successfull");
-                    FirebaseUser firebaseUser=firebaseAuth.getCurrentUser();
-                    Intent intent=new Intent(MainActivity.this,HomeActivity.class);
-                    startActivity(intent);
-                    updateUI(firebaseUser);
-                }else {
-                    Log.d(TAG,"Sign in with credential : Failed"+task.getException());
-                    updateUI(null);
-                }
-            }
-        });
-    }
 
 
 
@@ -213,6 +192,8 @@ public class MainActivity extends AppCompatActivity {
         if(firebaseUser!=null)
         {
             username.setText(firebaseUser.getDisplayName());
+            Intent intent=new Intent(MainActivity.this,HomeActivity.class);
+            startActivity(intent);
         }
         else {
             username.setText("");
@@ -222,7 +203,9 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
     //gmail authentication
+
 
 
     @Override
@@ -249,11 +232,18 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            FirebaseUser user = firebaseAuth.getCurrentUser();
-                            Intent intent=new Intent(MainActivity.this,HomeActivity.class);
-                            startActivity(intent);
-                            finish();
-                            Toast.makeText(getApplicationContext(),"Sign In Successfully",Toast.LENGTH_LONG).show();
+                            try{
+                                FirebaseUser user = firebaseAuth.getCurrentUser();
+                                Intent intent=new Intent(MainActivity.this,HomeActivity.class);
+                                intent.putExtra("admin_key","skip");
+                                startActivity(intent);
+                                finish();
+                                Toast.makeText(getApplicationContext(),"Sign In Successfully",Toast.LENGTH_LONG).show();
+                            }catch (Exception e)
+                            {
+
+                            }
+
                         } else {
                             Toast.makeText(getApplicationContext(),"Sign In Failed",Toast.LENGTH_LONG).show();
                         }
@@ -263,4 +253,95 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    //phone authenticatio
+    private void sendVerificationCode(){
+
+        String phone = user_phone.getText().toString();
+
+        if(phone.isEmpty()){
+            user_phone.setError("Phone number is required");
+            user_phone.requestFocus();
+            return;
+        }
+
+        if(phone.length() < 11 ){
+            user_phone.setError("Please enter a valid phone");
+            user_phone.requestFocus();
+            return;
+        }
+
+        /*Intent intent=new Intent(MainActivity.this,VerificationActivity.class);
+        intent.putExtra("key",phone);
+        startActivity(intent);*/
+
+        PhoneAuthProvider.getInstance().verifyPhoneNumber(
+                "+88"+phone,        // Phone number to verify
+                60,                 // Timeout duration
+                TimeUnit.SECONDS,   // Unit of timeout
+                TaskExecutors.MAIN_THREAD,               // Activity (for callback binding)
+                mCallbacks);        // OnVerificationStateChangedCallbacks
+    }
+    PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+
+
+        @Override
+        public void onVerificationCompleted(PhoneAuthCredential phoneAuthCredential) {
+            String code = phoneAuthCredential.getSmsCode();
+            if (code != null) {
+                user_phone.setText(code);
+                //verifying the code
+                verifyVerificationCode(code);
+            }
+        }
+
+        @Override
+        public void onVerificationFailed(FirebaseException e) {
+            Toast.makeText(getApplicationContext(),""+e,Toast.LENGTH_LONG).show();
+        }
+
+        @Override
+        public void onCodeSent(String s, PhoneAuthProvider.ForceResendingToken forceResendingToken) {
+            super.onCodeSent(s, forceResendingToken);
+
+            codeSent = s;
+        }
+    };
+
+
+
+    private void verifySignInCode(){
+        String code = verification_code.getText().toString();
+        PhoneAuthCredential credential = PhoneAuthProvider.getCredential(codeSent, code);
+        signInWithPhoneAuthCredential(credential);
+    }
+
+    private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
+        mAuth.signInWithCredential(credential)
+                .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            //here you can open new activity
+                            Intent intent=new Intent(MainActivity.this,HomeActivity.class);
+                            intent.putExtra("admin_key","skip");
+                            startActivity(intent);
+                            Toast.makeText(getApplicationContext(),
+                                    "Login Successfull", Toast.LENGTH_LONG).show();
+
+                        } else {
+                            if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
+                                Toast.makeText(getApplicationContext(),
+                                        "Incorrect Verification Code ", Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    }
+                });
+    }
+    private void verifyVerificationCode(String code) {
+        //creating the credential
+        PhoneAuthCredential credential = PhoneAuthProvider.getCredential(codeSent, code);
+
+        //signing the user
+        signInWithPhoneAuthCredential(credential);
+    }
 }

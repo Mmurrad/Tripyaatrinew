@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/homeparent_id"
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
 
@@ -28,7 +29,8 @@
                 android:layout_height="?attr/actionBarSize"
                 android:layout_weight=".5"
                 app:popupTheme="@style/AppTheme.PopupOverlay" />
-            <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+
+           <!-- <com.toptoche.searchablespinnerlibrary.SearchableSpinner
                 android:id="@+id/searchview_id"
                 android:layout_width="257dp"
                 app:hintText="Search Here"
@@ -37,11 +39,18 @@
                 android:layout_height="match_parent"
                 android:layout_weight="3.5">
 
-            </com.toptoche.searchablespinnerlibrary.SearchableSpinner>
-
+            </com.toptoche.searchablespinnerlibrary.SearchableSpinner>-->
 
         </LinearLayout>
 
     </com.google.android.material.appbar.AppBarLayout>
-    <include layout="@layout/content_home" />
+    <include layout="@layout/content_home"
+        android:id="@+id/scrollview_id"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:layout_margin="@dimen/_10sdp"
+        android:id="@+id/searchRv"
+        />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

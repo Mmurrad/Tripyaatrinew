@@ -18,7 +18,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class AdminDashBoardActivity extends AppCompatActivity {
 
-    CardView visitors_card,details_card,document_card,settings_card,about_app_card,news_add_card,photo_library,map_card;
+    CardView visitors_card,details_card,document_card,doctor_card,about_app_card,news_add_card,photo_library,map_card,booking_card;
     DatabaseReference databaseReference;
     int result=0;
     @Override
@@ -29,11 +29,12 @@ public class AdminDashBoardActivity extends AppCompatActivity {
         visitors_card=findViewById(R.id.total_visit_id);
         details_card=findViewById(R.id.add_details_id);
         document_card=findViewById(R.id.add_dccuments_id);
-        settings_card=findViewById(R.id.admin_settings_id);
+        doctor_card=findViewById(R.id.admin_settings_id);
         about_app_card=findViewById(R.id.about_app_id);
         news_add_card=findViewById(R.id.add_news_id);
         photo_library=findViewById(R.id.gallery_image_id);
         map_card=findViewById(R.id.map_image_id);
+        booking_card=findViewById(R.id.booking_card_id);
 
         databaseReference= FirebaseDatabase.getInstance().getReference("Count");
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -99,6 +100,24 @@ public class AdminDashBoardActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(),"Number Of Visitors "+result,Toast.LENGTH_LONG).show();
+            }
+        });
+        doctor_card.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(AdminDashBoardActivity.this,ShowDetailsActivity.class);
+                intent.putExtra("city_key","all_city");
+                intent.putExtra("value","all_place");
+                intent.putExtra("sub_key","all_category");
+                intent.putExtra("test_key","nothing");
+                startActivity(intent);
+            }
+        });
+        booking_card.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(AdminDashBoardActivity.this,ShowBookingActivity.class);
+                startActivity(intent);
             }
         });
     }

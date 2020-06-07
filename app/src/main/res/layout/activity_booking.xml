@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:background="@color/forground"
+    tools:context=".BookingActivity">
+
+    <LinearLayout
+        android:background="@color/color_2_light"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/user_name_id"
+            android:background="@drawable/edittext"
+            android:padding="10dp"
+            android:hint="Name..."
+            android:textSize="18sp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            ></EditText>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/user_email_id"
+            android:background="@drawable/edittext"
+            android:padding="10dp"
+            android:hint="Email..."
+            android:textSize="18sp"
+            android:clickable="true"
+            android:autoLink="email"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            ></EditText>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/user_phone_id"
+            android:background="@drawable/edittext"
+            android:padding="10dp"
+            android:hint="Phone..."
+            android:textSize="18sp"
+            android:autoLink="phone"
+            android:inputType="number"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            ></EditText>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/user_starting_location_id"
+            android:background="@drawable/edittext"
+            android:padding="10dp"
+            android:hint="Starting Location..."
+            android:textSize="18sp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            ></EditText>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/user_location_of_visit_id"
+            android:background="@drawable/edittext"
+            android:padding="10dp"
+            android:hint="Location Of visit..."
+            android:textSize="18sp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            ></EditText>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/user_number_of_person_id"
+            android:background="@drawable/edittext"
+            android:padding="10dp"
+            android:hint="Number Of Person..."
+            android:textSize="18sp"
+            android:inputType="number"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            ></EditText>
+
+        <com.manojbhadane.QButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="submit"
+            android:textSize="20sp"
+            android:padding="10dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@android:color/white"
+            app:qb_backgroundColor="@android:color/holo_orange_light"
+            app:qb_radius="100"
+            android:id="@+id/submit_booking"
+            app:qb_strokeColor="@color/lightsalmon"
+            app:qb_strokeWidth="5"/>
+
+        <TextView
+            android:text="Go Back"
+            android:layout_gravity="left"
+            android:layout_marginLeft="15dp"
+            android:textSize="20sp"
+            android:layout_marginTop="15dp"
+            android:layout_width="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/go_back_id"
+            android:layout_height="wrap_content"></TextView>
+    </LinearLayout>
+<ProgressBar
+    android:visibility="gone"
+    android:id="@+id/user_progress_bar_id"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+</ProgressBar>
+<DatePicker
+    android:layout_width="match_parent"
+    android:visibility="gone"
+    android:id="@+id/date_picker_id"
+    android:layout_height="wrap_content"></DatePicker>
+</LinearLayout>

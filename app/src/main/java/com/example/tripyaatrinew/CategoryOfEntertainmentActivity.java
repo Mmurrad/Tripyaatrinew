@@ -12,9 +12,9 @@ import android.widget.LinearLayout;
 
 public class CategoryOfEntertainmentActivity extends AppCompatActivity {
 
-    CardView movie_card,park_card,event_card,cricket_card,football_card,child_card,bus_card,railway_card,airport_card,taxi_card,police_card,money_card;
+    CardView movie_card,park_card,event_card,cricket_card,football_card,child_card,bus_card,railway_card,airport_card,taxi_card,police_card,money_card,doctor_card,hospital_card;
     String passkey;
-    LinearLayout entertainment,sports,station,service;
+    LinearLayout entertainment,sports,station,service,health;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +32,7 @@ public class CategoryOfEntertainmentActivity extends AppCompatActivity {
         sports=findViewById(R.id.sports_visbilty_id);
         station=findViewById(R.id.station_visbilty_id);
         service=findViewById(R.id.service_visbilty_id);
+        health=findViewById(R.id.health_visbilty_id);
 
 
         cricket_card=findViewById(R.id.cricket_id);
@@ -43,9 +44,17 @@ public class CategoryOfEntertainmentActivity extends AppCompatActivity {
         taxi_card=findViewById(R.id.taxi_id);
         police_card=findViewById(R.id.police_station_id);
         money_card=findViewById(R.id.money_exchange_id);
+        doctor_card=findViewById(R.id.doctor_id);
+        hospital_card=findViewById(R.id.hospital_id);
 
-        final Bundle bundle=getIntent().getExtras();
-        passkey=bundle.getString("key");
+        try{
+            final Bundle bundle=getIntent().getExtras();
+            passkey=bundle.getString("key");
+        }catch (Exception e)
+        {
+
+        }
+
 
         if(passkey.equals("visible_ent"))
         {
@@ -62,11 +71,15 @@ public class CategoryOfEntertainmentActivity extends AppCompatActivity {
             station.setVisibility(View.VISIBLE);
             getSupportActionBar().setTitle("Station Category");
         }
-
         else if(passkey.equals("visible_service"))
         {
             service.setVisibility(View.VISIBLE);
             getSupportActionBar().setTitle("Service Category");
+        }
+        else if(passkey.equals("visible_health"))
+        {
+            health.setVisibility(View.VISIBLE);
+            getSupportActionBar().setTitle("Health Category");
         }
 
         //service onclick Listener
@@ -95,6 +108,23 @@ public class CategoryOfEntertainmentActivity extends AppCompatActivity {
             }
         });
 
+        //health onclik Listener
+        doctor_card.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(CategoryOfEntertainmentActivity.this,StateListActivity.class);
+                intent.putExtra("details","doctor");
+                startActivity(intent);
+            }
+        });
+        hospital_card.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(CategoryOfEntertainmentActivity.this,StateListActivity.class);
+                intent.putExtra("details","hospital");
+                startActivity(intent);
+            }
+        });
 
         //station onclik Listener
         bus_card.setOnClickListener(new View.OnClickListener() {

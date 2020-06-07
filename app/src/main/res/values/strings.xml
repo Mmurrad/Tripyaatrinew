@@ -21,9 +21,11 @@
     <string name="menu_send">Send</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="admob_banner_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string-array name="details">
-        <item>Select</item>
+        <item>Browse Location</item>
         <item>Historical Place</item>
         <item>Tourism Place</item>
         <item>Entertainment Place</item>
